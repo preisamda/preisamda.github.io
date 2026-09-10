@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台球高手-台球技巧教学、规则解析与进阶训练指南</title>
+<meta name="description" content="台球高手频道汇聚中式八球、斯诺克、九球等项目的技巧教学、规则解析、走位思路与进阶训练方法，帮助爱好者从基础姿势到实战心态逐步提升。">
+<meta name="keywords" content="台球高手,台球技巧,斯诺克教学,中式八球,九球规则,台球走位,台球训练">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --felt:#0d5c3f;
+    --felt-deep:#083c29;
+    --felt-light:#12784f;
+    --gold:#e0b352;
+    --gold-soft:#f3d894;
+    --ink:#12211b;
+    --ink-soft:#3b4b44;
+    --paper:#f6f4ee;
+    --paper-2:#ffffff;
+    --line:#dfe3dc;
+    --shadow:0 10px 30px rgba(8,40,28,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- header ---------- */
+  .site-header{
+    background:linear-gradient(180deg,var(--felt-deep),var(--felt));
+    color:#eaf5ef;
+    border-bottom:3px solid var(--gold);
+    position:sticky;
+    top:0;
+    z-index:50;
+    box-shadow:0 4px 18px rgba(6,32,22,.25);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:14px 20px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width:42px;height:42px;
+    border-radius:50%;
+    background:radial-gradient(circle at 32% 30%,#ffffff 0 12%,var(--gold) 13% 30%,#111 31% 100%);
+    border:2px solid var(--gold-soft);
+    flex:0 0 auto;
+  }
+  .brand-text b{
+    display:block;
+    font-size:1.22rem;
+    letter-spacing:2px;
+    color:#fff;
+  }
+  .brand-text span{
+    font-size:.74rem;
+    letter-spacing:3px;
+    color:var(--gold-soft);
+  }
+  .main-nav ul{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .main-nav a{
+    display:block;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:.94rem;
+    color:#dcefe5;
+    transition:.22s;
+  }
+  .main-nav a:hover,
+  .main-nav a.active{
+    background:rgba(224,179,82,.18);
+    color:var(--gold-soft);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 420px at 78% -12%,rgba(224,179,82,.22),transparent 62%),
+      linear-gradient(160deg,var(--felt-deep),var(--felt-light));
+    color:#eef7f2;
+    padding:56px 0 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-90px;bottom:-120px;
+    width:340px;height:340px;
+    border-radius:50%;
+    border:2px dashed rgba(224,179,82,.35);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr .85fr;
+    gap:44px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero h1{
+    font-size:2.5rem;
+    line-height:1.3;
+    letter-spacing:1px;
+    margin-bottom:16px;
+    color:#fff;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+    border-bottom:3px solid rgba(224,179,82,.5);
+  }
+  .hero p.lead{
+    font-size:1.03rem;
+    color:#d5e9de;
+    max-width:640px;
+    margin-bottom:24px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:999px;
+    font-size:.95rem;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:.25s;
+    cursor:pointer;
+    border:2px solid transparent;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg,var(--gold),#c99a30);
+    color:#20180a;
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(224,179,82,.35);}
+  .btn-ghost{
+    border-color:rgba(255,255,255,.5);
+    color:#f0f8f3;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.12);}
+  .hero-facts{
+    display:flex;
+    gap:26px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+  .hero-facts div b{
+    display:block;
+    font-size:1.35rem;
+    color:var(--gold-soft);
+  }
+  .hero-facts div span{
+    font-size:.82rem;
+    color:#bcd8c9;
+  }
+  .hero-panel{
+    background:rgba(4,32,22,.55);
+    border:1px solid rgba(224,179,82,.35);
+    border-radius:var(--radius);
+    padding:24px 22px;
+    backdrop-filter:blur(3px);
+  }
+  .hero-panel h2{
+    font-size:1.02rem;
+    color:var(--gold-soft);
+    letter-spacing:2px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px dashed rgba(224,179,82,.3);
+  }
+  .hero-panel li{
+    display:flex;
+    gap:10px;
+    font-size:.92rem;
+    color:#dcefe5;
+    padding:7px 0;
+  }
+  .hero-panel li i{
+    color:var(--gold);
+    font-style:normal;
+    font-weight:700;
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:56px 0;}
+  .sec-head{
+    margin-bottom:30px;
+  }
+  .sec-head .eyebrow{
+    display:inline-block;
+    font-size:.76rem;
+    letter-spacing:3px;
+    color:var(--felt-light);
+    background:rgba(18,120,79,.1);
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .sec-head h2{
+    font-size:1.72rem;
+    letter-spacing:1px;
+    color:var(--ink);
+    position:relative;
+    padding-left:16px;
+  }
+  .sec-head h2::before{
+    content:"";
+    position:absolute;
+    left:0;top:50%;
+    transform:translateY(-50%);
+    width:6px;height:26px;
+    border-radius:3px;
+    background:linear-gradient(180deg,var(--gold),var(--felt-light));
+  }
+  .sec-head p{
+    margin-top:10px;
+    color:var(--ink-soft);
+    max-width:860px;
+    font-size:.96rem;
+  }
+
+  /* ---------- 技巧卡片 ---------- */
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .skill-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 24px;
+    box-shadow:var(--shadow);
+    transition:.28s;
+    position:relative;
+    overflow:hidden;
+  }
+  .skill-card::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:4px;
+    background:linear-gradient(90deg,var(--felt-light),var(--gold));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.3s;
+  }
+  .skill-card:hover{transform:translateY(-6px);}
+  .skill-card:hover::before{transform:scaleX(1);}
+  .skill-card .num{
+    font-size:.78rem;
+    letter-spacing:2px;
+    color:var(--gold);
+    font-weight:700;
+  }
+  .skill-card h3{
+    font-size:1.14rem;
+    margin:8px 0 12px;
+    color:var(--felt-deep);
+  }
+  .skill-card p{
+    font-size:.92rem;
+    color:var(--ink-soft);
+  }
+  .skill-card ul{
+    margin-top:14px;
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+  }
+  .skill-card li{
+    font-size:.88rem;
+    color:var(--ink-soft);
+    padding-left:16px;
+    position:relative;
+    margin-bottom:6px;
+  }
+  .skill-card li::before{
+    content:"";
+    position:absolute;
+    left:0;top:11px;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--felt-light);
+  }
+
+  /* ---------- 项目对比 ---------- */
+  .games{
+    background:linear-gradient(180deg,#eef4f0,#f6f4ee);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .game-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper-2);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    font-size:.92rem;
+  }
+  .game-table thead th{
+    background:var(--felt-deep);
+    color:var(--gold-soft);
+    text-align:left;
+    padding:14px 18px;
+    font-weight:600;
+    letter-spacing:1px;
+    white-space:nowrap;
+  }
+  .game-table td{
+    padding:14px 18px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);
+    vertical-align:top;
+  }
+  .game-table tbody tr:last-child td{border-bottom:none;}
+  .game-table tbody tr:nth-child(even){background:#fafbf9;}
+  .game-table td:first-child{
+    font-weight:600;
+    color:var(--felt-deep);
+  }
+
+  /* ---------- 训练路线 ---------- */
+  .roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    counter-reset:step;
+  }
+  .step{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 20px;
+    position:relative;
+    box-shadow:var(--shadow);
+  }
+  .step::before{
+    counter-increment:step;
+    content:"0" counter(step);
+    position:absolute;
+    top:14px;right:18px;
+    font-size:1.6rem;
+    font-weight:800;
+    color:rgba(18,120,79,.14);
+  }
+  .step h3{
+    font-size:1.02rem;
+    color:var(--felt-deep);
+    margin-bottom:10px;
+  }
+  .step p{
+    font-size:.88rem;
+    color:var(--ink-soft);
+  }
+  .step .tag{
+    display:inline-block;
+    margin-top:14px;
+    font-size:.74rem;
+    letter-spacing:1px;
+    color:var(--felt-light);
+    background:rgba(18,120,79,.1);
+    padding:3px 10px;
+    border-radius:999px;
+  }
+
+  /* ---------- 文章 / 指南 ---------- */
+  .guide-layout{
+    display:grid;
+    grid-template-columns:1.6fr .9fr;
+    gap:34px;
+    align-items:start;
+  }
+  .guide-body article{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+  }
+  .guide-body h3{
+    font-size:1.14rem;
+    color:var(--felt-deep);
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .guide-body h3 span{
+    display:inline-block;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--gold);
+    flex:0 0 auto;
+  }
+  .guide-body p{
+    font-size:.94rem;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .guide-body p:last-child{margin-bottom:0;}
+  .side-box{
+    background:linear-gradient(160deg,var(--felt-deep),var(--felt-light));
+    color:#e3f1e9;
+    border-radius:var(--radius);
+    padding:26px 24px;
+    box-shadow:var(--shadow);
+    margin-bottom:20px;
+  }
+  .side-box h3{
+    font-size:1.04rem;
+    color:var(--gold-soft);
+    letter-spacing:2px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px dashed rgba(224,179,82,.35);
+  }
+  .side-box li{
+    font-size:.9rem;
+    padding:8px 0 8px 18px;
+    position:relative;
+    color:#d8ebe1;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .side-box li:last-child{border-bottom:none;}
+  .side-box li::before{
+    content:"▸";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+  }
+  .side-note{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    padding:20px 22px;
+    font-size:.9rem;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+  }
+  .side-note b{
+    display:block;
+    color:var(--felt-deep);
+    margin-bottom:6px;
+    font-size:.98rem;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{
+    background:linear-gradient(180deg,#eef4f0,#f6f4ee);
+    border-top:1px solid var(--line);
+  }
+  .faq-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  .faq-item{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .faq-item h3{
+    font-size:1.02rem;
+    color:var(--felt-deep);
+    margin-bottom:10px;
+    display:flex;
+    gap:10px;
+  }
+  .faq-item h3 i{
+    font-style:normal;
+    color:var(--gold);
+    font-weight:800;
+  }
+  .faq-item p{
+    font-size:.91rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--felt-deep);
+    color:#b9d3c6;
+    padding:44px 0 26px;
+    border-top:3px solid var(--gold);
+    font-size:.88rem;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:32px;
+    padding-bottom:26px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .footer-grid h4{
+    color:var(--gold-soft);
+    font-size:.98rem;
+    letter-spacing:1px;
+    margin-bottom:14px;
+  }
+  .footer-grid p{color:#a9c7b8;}
+  .footer-grid li{
+    padding:5px 0;
+    color:#a9c7b8;
+  }
+  .footer-grid li a:hover{color:var(--gold-soft);}
+  .footer-bottom{
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    color:#8fb2a1;
+    font-size:.82rem;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .skill-grid{grid-template-columns:repeat(2,1fr);}
+    .roadmap{grid-template-columns:repeat(2,1fr);}
+    .guide-layout{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .main-nav ul{gap:2px;}
+    .main-nav a{padding:6px 10px;font-size:.86rem;}
+    .hero{padding:40px 0 36px;}
+    .hero h1{font-size:1.8rem;}
+    .hero-facts{gap:18px;}
+    .skill-grid{grid-template-columns:1fr;}
+    .roadmap{grid-template-columns:1fr;}
+    .faq-list{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:42px 0;}
+    .sec-head h2{font-size:1.42rem;}
+    .game-table{font-size:.84rem;}
+    .game-table thead th,.game-table td{padding:10px 12px;}
+    .table-scroll{overflow-x:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div class="brand-text">
+        <b>台球高手</b>
+        <span>BILLIARDS MASTER</span>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#skills" class="active">技巧教学</a></li>
+        <li><a href="#games">项目解析</a></li>
+        <li><a href="#roadmap">进阶路线</a></li>
+        <li><a href="#guide">实战指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>成为<em>台球高手</em>，从理解母球开始</h1>
+        <p class="lead">
+          台球高手并不是天生的手感，而是姿势、瞄准、力度与走位四件事反复打磨的结果。这里把中式八球、斯诺克、九球等项目的基础动作拆开讲清楚，帮你找到可以每天练、能看见进步的路径。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#skills">查看技巧要点</a>
+          <a class="btn btn-ghost" href="#roadmap">了解训练路线</a>
+        </div>
+        <div class="hero-facts">
+          <div><b>4 大</b><span>基础技术模块</span></div>
+          <div><b>3 类</b><span>主流台球项目</span></div>
+          <div><b>逐级</b><span>训练进阶思路</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h2>新手最该先解决的 5 件事</h2>
+        <ul>
+          <li><i>01</i><span>站姿与握杆：身体稳定，出杆才不晃</span></li>
+          <li><i>02</i><span>瞄准方法：找到进球线与假想球</span></li>
+          <li><i>03</i><span>出杆节奏：匀速回杆、平稳送杆</span></li>
+          <li><i>04</i><span>力度控制：区分轻推、中杆与发力</span></li>
+          <li><i>05</i><span>走位意识：为下一颗球提前留位</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 技巧教学 -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">CORE SKILLS</span>
+        <h2>台球高手必须打磨的核心技巧</h2>
+        <p>台球技术可以拆成几个相对独立的模块。分开练、逐个突破，比一上来就打完整局更容易发现问题所在。下面六项是多数爱好者提升过程中绕不开的环节。</p>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <span class="num">SKILL 01</span>
+          <h3>站姿与握杆</h3>
+          <p>稳定的下盘是出杆平顺的前提。站位要让身体重心均匀，前手架稳、后手握杆松紧适中，避免用手腕发力代替手臂摆动。</p>
+          <ul>
+            <li>双脚与肩同宽，侧身对球台</li>
+            <li>后手小臂自然垂直地面</li>
+            <li>握杆力度以不掉杆为准</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="num">SKILL 02</span>
+          <h3>瞄准与假想球</h3>
+          <p>瞄准的本质是判断母球与目标球的接触点。常用方法是先确定目标球进球线，再反推母球需要击打的位置，也就是假想球中心。</p>
+          <ul>
+            <li>先看袋口，再看目标球</li>
+            <li>用杆头辅助确认击点</li>
+            <li>近距离先练直线球</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="num">SKILL 03</span>
+          <h3>出杆节奏</h3>
+          <p>很多失误并非瞄不准，而是出杆时加速或停顿。保持回杆与送杆的速度一致，让杆头沿着同一条直线通过母球。</p>
+          <ul>
+            <li>回杆慢、送杆稳</li>
+            <li>击球后保持随杆动作</li>
+            <li>避免突然甩腕</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="num">SKILL 04</span>
+          <h3>力度与杆法</h3>
+          <p>高杆、中杆、低杆以及左右塞会改变母球撞击后的运动方向。理解不同杆法的效果，才能在实战中控制母球停在哪里。</p>
+          <ul>
+            <li>中杆用于控制母球跟进</li>
+            <li>低杆让母球回缩</li>
+            <li>塞球需注意偏移补偿</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="num">SKILL 05</span>
+          <h3>走位与线路</h3>
+          <p>高手与普通爱好者的差距，常常在于打完一颗球之后，母球是否停在方便打下一颗的位置。走位需要提前规划两到三颗球。</p>
+          <ul>
+            <li>先看下一颗球的位置</li>
+            <li>控制母球停球区域而非点</li>
+            <li>尽量少用大力走位</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="num">SKILL 06</span>
+          <h3>防守与安全球</h3>
+          <p>无法进攻时，把母球藏到障碍球之后，或让目标球远离袋口，同样能赢得主动。防守意识是业余进阶为高手的重要一步。</p>
+          <ul>
+            <li>判断是否值得强行进攻</li>
+            <li>学会贴库与藏球</li>
+            <li>给对手留下难度球</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目解析 -->
+  <section class="games" id="games">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">GAME TYPES</span>
+        <h2>不同台球项目的规则与打法差异</h2>
+        <p>中式八球、斯诺克和九球在球台尺寸、球数、胜负判定和战术思路上都有明显区别。先明确自己常打哪一种，再针对性训练，效率会更高。</p>
+      </div>
+      <div class="table-scroll">
+        <table class="game-table">
+          <thead>
+            <tr>
+              <th>项目</th>
+              <th>球数与用球</th>
+              <th>胜负判定</th>
+              <th>打法特点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>中式八球</td>
+              <td>1 颗母球 + 15 颗目标球，分全色与花色</td>
+              <td>清完本方一组后打进 8 号球</td>
+              <td>袋口相对友好，强调走位衔接与清台顺序，是国内普及度较高的玩法</td>
+            </tr>
+            <tr>
+              <td>斯诺克</td>
+              <td>1 颗母球 + 15 颗红球 + 6 颗彩球</td>
+              <td>按红球与彩球交替得分，总分高者胜</td>
+              <td>球台大、袋口小，对瞄准精度、防守和长台能力要求更高</td>
+            </tr>
+            <tr>
+              <td>九球</td>
+              <td>1 颗母球 + 1 至 9 号目标球</td>
+              <td>按号码顺序击球，合法打进 9 号球即胜</td>
+              <td>节奏快，强调冲球、连续进攻与母球控制的精确性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 进阶路线 -->
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">TRAINING PATH</span>
+        <h2>从业余到高手的四个训练阶段</h2>
+        <p>训练不必追求一步到位。按照由易到难的顺序推进，每个阶段设定明确目标，更容易看到自己的变化。</p>
+      </div>
+      <div class="roadmap">
+        <div class="step">
+          <h3>稳定动作</h3>
+          <p>重点解决站姿、握杆和出杆直线度。可以只练直线球和近距离中杆，把动作固定下来，暂时不追求走位。</p>
+          <span class="tag">基础期</span>
+        </div>
+        <div class="step">
+          <h3>提升准度</h3>
+          <p>加入角度球、薄球和不同距离的练习，逐步建立对假想球与击点的判断，减少凭感觉出杆。</p>
+          <span class="tag">进阶期</span>
+        </div>
+        <div class="step">
+          <h3>控制母球</h3>
+          <p>系统练习高杆、低杆和塞球，尝试用不同力度把母球停在预定区域，为连续进攻打基础。</p>
+          <span class="tag">控制期</span>
+        </div>
+        <div class="step">
+          <h3>实战策略</h3>
+          <p>把技术放到完整对局中检验，学会选择进攻或防守，处理复杂球形，并保持稳定的比赛心态。</p>
+          <span class="tag">实战期</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 实战指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">PRACTICE GUIDE</span>
+        <h2>台球高手实战提升指南</h2>
+        <p>技术之外，练习方法、器材选择和心态管理同样影响进步速度。以下内容围绕日常训练中最常遇到的几个问题展开。</p>
+      </div>
+      <div class="guide-layout">
+        <div class="guide-body">
+          <article>
+            <h3><span></span>怎样安排一次有效的练习</h3>
+            <p>与其漫无目的地打完整局，不如把练习拆成几个小任务。例如先用十分钟只练直线中杆，再花十五分钟练固定角度的进球，最后用剩余时间做走位串联。每个任务设定可量化的目标，比如连续打进多少颗，能更清楚地判断当天状态。</p>
+            <p>练习时建议记录失误类型：是瞄准偏差、出杆不稳，还是走位不到位。找到高频问题，下一次练习就优先处理它。</p>
+          </article>
+          <article>
+            <h3><span></span>球杆与配件如何选择</h3>
+            <p>球杆的手感因人而异，重量、杆头直径和皮头软硬都会影响出杆感受。初学者不必追求高价器材，选择一支重量适中、杆身平直、皮头状态良好的球杆即可。巧克粉要定期更换，皮头出现明显变形或打滑时应及时修整。</p>
+            <p>如果条件允许，可以在同一张球台上多试几支不同参数的球杆，找到自己更容易控制的那一支。</p>
+          </article>
+          <article>
+            <h3><span></span>对局中的心态与决策</h3>
+            <p>台球是一项节奏较慢的运动，情绪波动很容易反映在出杆上。失误之后先调整呼吸，不要在下一杆急于挽回。遇到难度较高的球形时，先判断进攻成功率，再决定是否转为防守。</p>
+            <p>稳定的高手往往不是每杆都打得漂亮，而是很少犯低级错误，并且能在被动局面中把球权安全地交还给对手。</p>
+          </article>
+          <article>
+            <h3><span></span>常见误区提醒</h3>
+            <p>用力过猛是很多爱好者的通病，大力击球会放大动作误差，也让母球难以控制。另一个误区是只练进攻不练防守，导致实战中一旦无法进攻就完全被动。此外，频繁更换球杆或姿势，也会让手感难以稳定。</p>
+            <p>把基础动作练扎实，比追求花哨的杆法更值得投入时间。</p>
+          </article>
+        </div>
+        <aside>
+          <div class="side-box">
+            <h3>每日可练的小项目</h3>
+            <ul>
+              <li>直线中杆连续进袋</li>
+              <li>固定角度球重复练习</li>
+              <li>母球停位区域控制</li>
+              <li>低杆回缩距离测试</li>
+              <li>贴库球与薄球处理</li>
+              <li>简单安全球布置</li>
+            </ul>
+          </div>
+          <div class="side-note">
+            <b>关于练习时长</b>
+            练习效果不完全取决于时间长短。专注练习三十分钟，通常比心不在焉地打两个小时更有收获。建议每次练习都带着一个明确的小目标。
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>台球爱好者常见问题</h2>
+        <p>以下问题来自练习和对局中较常出现的情况，回答以通用经验为主，具体仍需结合个人习惯与球台条件调整。</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><i>Q</i>零基础要先学什么？</h3>
+          <p>先固定站姿、握杆和出杆动作，再练直线球。动作稳定之后再考虑角度球和走位，否则后面纠正起来会更费力。</p>
+        </div>
+        <div class="faq-item">
+          <h3><i>Q</i>为什么瞄准了还是打不进？</h3>
+          <p>常见原因包括出杆不直、击球时身体晃动、力度过大导致偏差放大。可以先用慢速中杆练习，观察杆头是否沿直线通过母球。</p>
+        </div>
+        <div class="faq-item">
+          <h3><i>Q</i>塞球一定要用吗？</h3>
+          <p>塞球能改变母球撞库后的方向，但也会带来偏移，控制难度较高。初学者可以先掌握中杆、高杆和低杆，再逐步加入塞球。</p>
+        </div>
+        <div class="faq-item">
+          <h3><i>Q</i>怎样提高走位能力？</h3>
+          <p>先养成打球前观察下一颗球的习惯，再练习用不同力度把母球停在目标区域。走位追求的是区域控制，而不是精确到某一个点。</p>
+        </div>
+        <div class="faq-item">
+          <h3><i>Q</i>练习频率多少比较合适？</h3>
+          <p>规律比强度更重要。每周保持两到三次、每次一小时左右的专注练习，通常比偶尔长时间练习更容易形成稳定手感。</p>
+        </div>
+        <div class="faq-item">
+          <h3><i>Q</i>防守能力重要吗？</h3>
+          <p>很重要。当进攻成功率低时，合理的防守可以让对手陷入困难局面。学会判断何时进攻、何时防守，是水平提升的重要标志。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>台球高手</h4>
+        <p>分享台球基础技巧、项目规则与训练方法，帮助爱好者更系统地理解这项运动，在练习和对局中稳步提升。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#skills">技巧教学</a></li>
+          <li><a href="#games">项目解析</a></li>
+          <li><a href="#roadmap">进阶路线</a></li>
+          <li><a href="#guide">实战指南</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>练习提醒</h4>
+        <ul>
+          <li>动作稳定优先于力度</li>
+          <li>走位意识需长期培养</li>
+          <li>进攻与防守同样重要</li>
+          <li>保持规律练习节奏</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>台球高手 · 台球技巧与训练内容参考</span>
+      <span>内容仅供学习交流，具体技术请结合实际情况练习</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var links = document.querySelectorAll('.main-nav a');
+    var sections = [];
+    links.forEach(function(a){
+      var id = a.getAttribute('href');
+      if(id && id.charAt(0) === '#'){
+        var el = document.querySelector(id);
+        if(el){ sections.push({link:a, el:el}); }
+      }
+    });
+    if(!sections.length) return;
+    function onScroll(){
+      var pos = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function(item){
+        if(item.el.offsetTop <= pos){ current = item; }
+      });
+      links.forEach(function(a){ a.classList.remove('active'); });
+      if(current){ current.link.classList.add('active'); }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+          </html>
